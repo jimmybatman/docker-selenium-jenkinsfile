@@ -20,7 +20,7 @@ pipeline {
 			        	//app.push("${BUILD_NUMBER}")
 			            //app.push("latest")
 					//bat 'docker login -u "$USERNAME" -p "$PASSWORD" $Harbor_Registry'
-					bat 'docker push jimmy/containertest:${BUILD_NUMBER}'
+					bat "docker push jimmy/containertest:${BUILD_NUMBER}"
 					bat 'docker push jimmy/containertest:latest'
 				
 			        }
