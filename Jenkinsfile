@@ -28,7 +28,7 @@ pipeline {
 			        // docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 			        	//app.push("${BUILD_NUMBER}")
 			            //app.push("latest")
-					bat "docker login -u jimmybatman --password-stdin wahjimmy196 docker.io"
+					bat "docker login -u jimmybatman --password wahjimmy196 docker.io"
 					//bat "docker push jimmybatman/selenium:${BUILD_NUMBER}"
 					bat "docker push jimmybatman/selenium:latest"
 				
