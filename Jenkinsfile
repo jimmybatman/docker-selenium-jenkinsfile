@@ -17,14 +17,15 @@ pipeline {
         stage('Push Image') {
             steps {
                 script {
+				
 			        // docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 			        	//app.push("${BUILD_NUMBER}")
 			            //app.push("latest")
-					//bat 'docker login -u "$USERNAME" -p "$PASSWORD" $Harbor_Registry'
+					bat "docker login -u jimmybatman/selenium -p wahjimmy196 docker.io"
 					bat "docker push jimmybatman/selenium:${BUILD_NUMBER}"
 					bat "docker push jimmybatman/selenium:latest"
 				
-			       // }
+			        //}
                 }
             }
         }        
