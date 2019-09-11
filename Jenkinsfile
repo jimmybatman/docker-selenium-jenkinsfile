@@ -60,10 +60,10 @@ pipeline {
     }
 	post{
       always {
-         sh "docker rm -vf ${chrome}"
-         sh "docker rm -vf ${firefox}"
-         sh "docker rm -vf ${seleniumHub}"
-         sh "docker network rm ${network}"
+         bat "docker rm -vf ${chrome}"
+         bat "docker rm -vf ${firefox}"
+         bat "docker rm -vf ${seleniumHub}"
+         bat "docker network rm ${network}"
       } 
 	}	  
 }
