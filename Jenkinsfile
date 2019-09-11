@@ -1,9 +1,9 @@
 //variables
-def network='jenkins-${BUILD_NUMBER}'
-def seleniumHub='selenium-hub-${BUILD_NUMBER}'
-def chrome='chrome-${BUILD_NUMBER}'
-def firefox='firefox-${BUILD_NUMBER}'
-def containertest='conatinertest-${BUILD_NUMBER}'
+def network="jenkins-${BUILD_NUMBER}"
+def seleniumHub="selenium-hub-${BUILD_NUMBER}"
+def chrome="chrome-${BUILD_NUMBER}"
+def firefox="firefox-${BUILD_NUMBER}"
+def containertest="conatinertest-${BUILD_NUMBER}"
    
 pipeline {
     agent any
@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                 	bat "docker build -t jimmybatman/selenium ."
-					bat "docker tag  jimmybatman/selenium jimmybatman/selenium:${BUILD_NUMBER}"
+					//bat "docker tag  jimmybatman/selenium jimmybatman/selenium:${BUILD_NUMBER}"
                 }
             }
         }
@@ -28,8 +28,8 @@ pipeline {
 			        // docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 			        	//app.push("${BUILD_NUMBER}")
 			            //app.push("latest")
-					bat "docker login -u jimmybatman --password wahjimmy196 docker.io"
-					bat "docker push jimmybatman/selenium:${BUILD_NUMBER}"
+					bat "docker login -u jimmybatman --password-stdin wahjimmy196 docker.io"
+					//bat "docker push jimmybatman/selenium:${BUILD_NUMBER}"
 					bat "docker push jimmybatman/selenium:latest"
 				
 			        //}
