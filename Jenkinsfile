@@ -17,7 +17,7 @@ pipeline {
         stage('Push Image') {
             steps {
                 script {
-			         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+			         docker.withRegistry('https://registry.hub.docker.com', 'docker.io') {
 			        	//app.push("${BUILD_NUMBER}")
 			            //app.push("latest")
 					//bat 'docker login -u "$USERNAME" -p "$PASSWORD" $Harbor_Registry'
