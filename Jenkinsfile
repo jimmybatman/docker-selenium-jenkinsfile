@@ -4,7 +4,7 @@ def seleniumHub="selenium-hub-${BUILD_NUMBER}"
 def chrome="chrome-${BUILD_NUMBER}"
 def firefox="firefox-${BUILD_NUMBER}"
 def containertest="conatinertest-${BUILD_NUMBER}"
-def report_output="${WORKSPACE}\\search"
+//def report_output="${WORKSPACE}\\search"
    
 pipeline {
     agent any
@@ -50,7 +50,7 @@ pipeline {
          steps{
            
                   // a directory 'search' is created for container test-output
-                  bat "docker run --rm -e SELENIUM_HUB=${seleniumHub} -e BROWSER=firefox -e MODULE=search-module.xml -v ${report_output}:/usr/share/tag/test-output --network ${network} jimmybatman/selenium"
+                  bat "docker run --rm -e SELENIUM_HUB=${seleniumHub} -e BROWSER=firefox -e MODULE=search-module.xml -v ${WORKSPACE}\\search:/usr/share/tag/test-output --network ${network} jimmybatman/selenium"
                   //archive all the files under 'search' directory
                   archiveArtifacts artifacts: 'search/**', fingerprint: true
                
