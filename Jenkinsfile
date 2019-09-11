@@ -56,5 +56,6 @@ pipeline {
          sh "docker rm -vf ${firefox}"
          sh "docker rm -vf ${seleniumHub}"
          sh "docker network rm ${network}"
-      }   
+      } 
+	}	  
 }
